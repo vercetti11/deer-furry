@@ -56,9 +56,13 @@ function insertCoin(coin) {
 
 function purchaseCanBeSatisfied(product, userMoney) {
   const { stock, price, name } = product;
-  if (userMoney < price) return console.log(`You don't have enought credit`);
-  if (stock < 0) return console.log(`There is ​not enough stock​ of ${name}`);
-  return true;
+  if (userMoney < price) {
+    return console.log(`You don't have enought credit`);
+  } else if (stock < 0) {
+    return console.log(`There is ​not enough stock​ of ${name}`);
+  } else {
+    return true;
+  }
 }
 
 function reduceStock(button) {
@@ -74,4 +78,4 @@ function selectProduct(button) {
 
 insertCoin(1);
 
-console.log(selectProduct(0));
+console.log(selectProduct(1));
