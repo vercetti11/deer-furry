@@ -1,5 +1,5 @@
 import { initialState } from "../../initial data/initialState";
-import machine, { insertedCoin } from "./machineSlice";
+import machine, { insertedCoin, selectedAProduct } from "./machineSlice";
 
 describe("machine reducer", () => {
   it("should handle initial state", () => {
@@ -34,5 +34,25 @@ describe("machine reducer", () => {
         }
       )
     ).toEqual({ coinStack: { 1: 1 }, userMoney: 1 });
+  });
+  it("should not return a product if there is no money", () => {
+    expect(
+      machine(
+        {
+          userMoney: 0,
+          products: [
+            {
+              name: "Coca-Cola",
+              price: 0.8,
+              stock: 10,
+            },
+          ],
+        },
+        {
+          type: selectedAProduct.type,
+          payload: 0,
+        }
+      )
+    );
   });
 });

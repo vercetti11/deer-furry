@@ -1,4 +1,5 @@
 export const initialState = {
+  error: null,
   userMoney: 0,
   coinStack: {
     0.05: 30,
