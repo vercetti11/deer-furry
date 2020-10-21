@@ -17,7 +17,7 @@ export function ReturnedProduct() {
         alignItems="center"
       >
         {lastReturnedProduct && (
-          <Badge cursor="pointer" color="green">
+          <Badge data-testid="returned-product" cursor="pointer" color="green">
             {lastReturnedProduct}
           </Badge>
         )}
