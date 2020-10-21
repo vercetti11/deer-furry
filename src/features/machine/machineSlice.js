@@ -35,3 +35,6 @@ export const { insertedCoin, selectedAProduct } = machineSlice.actions;
 export default machineSlice.reducer;
 
 export const selectAllProducts = state => state.machine.products;
+
+export const selectError = state => state.machine.error;
+export const selectUserMoney = state => state.machine.userMoney;
