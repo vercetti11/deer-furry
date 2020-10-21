@@ -3,6 +3,6 @@ import machineReducer from "../features/machine/machineSlice";
 
 export default configureStore({
   reducer: {
-    counter: machineReducer,
+    machine: machineReducer,
   },
 });

@@ -1,7 +1,7 @@
 import React from "react";
-
+import { Screen } from "./features/machine/Screen";
 function App() {
-  return <p>Machine</p>;
+  return <Screen />;
 }
 
 export default App;
