@@ -1,11 +1,16 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Popover, Menu, Pane, Button, Position, AddIcon } from "evergreen-ui";
+import { insertedCoin } from "./machineSlice";
 
 export function CoinsInput() {
   const coinsItCanInsert = useSelector(state =>
     Object.keys(state.machine.coinStack).map(coin => parseFloat(coin))
   );
+  const dispatch = useDispatch();
+  const handleInsertCoin = coin => {
+    dispatch(insertedCoin(coin));
+  };
   return (
     <Popover
       position={Position.BOTTOM_RIGHT}
@@ -13,7 +18,11 @@ export function CoinsInput() {
         <Menu>
           <Menu.Group>
             {coinsItCanInsert.map(coin => (
-              <Menu.Item key={coin} icon={AddIcon} onSelect={() => {}}>
+              <Menu.Item
+                key={coin}
+                icon={AddIcon}
+                onSelect={() => handleInsertCoin(coin)}
+              >
                 {coin.toFixed(2) + " €"}
               </Menu.Item>
             ))}
