@@ -7,7 +7,7 @@ export const Screen = () => {
   return (
     <Pane display="flex" justifyContent="flex-end" marginBottom={16}>
       <Code paddingX={16} paddingY={8} minWidth={80} textAlign="right">
-        {userMoney}
+        {userMoney.toFixed(2)}
       </Code>
     </Pane>
   );
