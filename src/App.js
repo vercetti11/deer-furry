@@ -1,7 +1,12 @@
 import React from "react";
 import { Screen } from "./features/machine/Screen";
+import MainLayout from "./layout/MainLayout";
 function App() {
-  return <Screen />;
+  return (
+    <MainLayout>
+      <Screen />
+    </MainLayout>
+  );
 }
 
 export default App;
