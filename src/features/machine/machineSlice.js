@@ -33,3 +33,5 @@ const machineSlice = createSlice({
 export const { insertedCoin, selectedAProduct } = machineSlice.actions;
 
 export default machineSlice.reducer;
+
+export const selectAllProducts = state => state.machine.products;
