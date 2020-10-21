@@ -27,10 +27,17 @@ const machineSlice = createSlice({
         state.error = "Error";
       }
     },
+    clearedErrorMessage(state) {
+      state.error = null;
+    },
   },
 });
 
-export const { insertedCoin, selectedAProduct } = machineSlice.actions;
+export const {
+  insertedCoin,
+  selectedAProduct,
+  clearedErrorMessage,
+} = machineSlice.actions;
 
 export default machineSlice.reducer;
 
