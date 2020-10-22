@@ -50,6 +50,29 @@ const machineSlice = createSlice({
     clearedErrorMessage(state) {
       state.error = null;
     },
+    refundedUserMoney(state) {
+      // Repeated Logic, later we'll see if we refactor or not
+
+      // Return Left Change Logic
+      const sortedStacks = Object.entries(state.coinStack)
+        .sort((a, b) => b[0] - a[0])
+        .map(arr => [parseInt([arr[0]]), arr[1]]);
+
+      const stackHasCoins = stack => stack[1] > 0;
+      let change = [];
+      sortedStacks.forEach(stack => {
+        const coin = stack[0];
+        if (stackHasCoins(stack)) {
+          while (state.userMoney >= coin) {
+            state.coinStack[coin]--;
+            state.userMoney -= coin;
+            change = [...change, coin];
+          }
+        }
+      });
+      state.returnedChange = change;
+      //
+    },
   },
 });
 
@@ -57,6 +80,7 @@ export const {
   insertedCoin,
   selectedAProduct,
   clearedErrorMessage,
+  refundedUserMoney,
 } = machineSlice.actions;
 
 export default machineSlice.reducer;

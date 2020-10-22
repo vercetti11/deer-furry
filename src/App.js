@@ -6,11 +6,16 @@ import { Screen } from "./features/machine/Screen";
 import { ReturnedCoinBox } from "./features/machine/ReturnedCoinBox";
 import MainLayout from "./layout/MainLayout";
 import { MachineBottomLayout } from "./layout/MachineBottomLayout";
+import { TopLayout } from "./layout/TopLayout";
+import { RefundButton } from "./features/machine/RefundButton";
 function App() {
   return (
     <MainLayout>
       <Screen />
-      <CoinsInput />
+      <TopLayout>
+        <RefundButton />
+        <CoinsInput />
+      </TopLayout>
       <Products />
       <MachineBottomLayout>
         <ReturnedProduct />

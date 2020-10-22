@@ -30,7 +30,7 @@ export function CoinsInput() {
         </Menu>
       }
     >
-      <Pane display="flex" justifyContent="flex-end" marginBottom={32}>
+      <Pane display="flex" justifyContent="flex-end">
         <Button fontSize={16}>Insert Coin</Button>
       </Pane>
     </Popover>
