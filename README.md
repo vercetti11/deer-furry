@@ -2,6 +2,7 @@
 
 # Documentation
 **Code entry point** `src/indes.js`<br/>
+
 This is a Front-End implementation of a vending machine.<br/>
 You can play with it live [here](https://deer-furry-vending-machine.netlify.app), but be carefull the machine will not give you change at this point in development.
 
