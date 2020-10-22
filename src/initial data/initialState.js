@@ -1,7 +1,7 @@
 export const initialState = {
   error: null,
   userMoney: 0,
-  returnedChange: [100, 200, 20],
+  returnedChange: [],
   lastReturnedProduct: null,
   coinStack: {
     5: 0,
