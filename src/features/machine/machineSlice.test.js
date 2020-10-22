@@ -83,7 +83,7 @@ describe("machine reducer", () => {
           payload: 0,
         }
       )
-    ); //TODO: toEqual;
+    ); //TODO: toEqual is missing;
   });
 
   it("selectedAProduct priced 80c should return 20c if user inserted 1€ and the 20c Coin Stack should show one coin less", () => {
