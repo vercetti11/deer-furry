@@ -68,3 +68,5 @@ export const selectUserMoney = state => state.machine.userMoney;
 
 export const selectLastReturnedProduct = state =>
   state.machine.lastReturnedProduct;
+
+export const returnedChange = state => state.machine.returnedChange;

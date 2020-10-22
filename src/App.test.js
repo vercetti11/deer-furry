@@ -13,7 +13,8 @@ test("should handle a Coca-Cola after the user has inserted 1€", async () => {
   );
 
   userEvent.click(screen.getByText("Insert Coin"));
-  userEvent.click(screen.getByText("1.00 €"));
+  userEvent.click(screen.getByText("2.00 €"));
   userEvent.click(screen.getByText("Coca-Cola"));
   expect(screen.getAllByTestId("returned-product"));
+  expect(screen.getByText("1€"));
 });
