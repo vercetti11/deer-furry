@@ -5,7 +5,7 @@ describe("machine reducer", () => {
   it("should handle initial state", () => {
     expect(machine(undefined, initialState)).toEqual(initialState);
   });
-  it("should handle insertedCoin", () => {
+  it("insertedCoin with 5c should show up in the coinStack and userMoney", () => {
     expect(
       machine(
         {
@@ -85,7 +85,8 @@ describe("machine reducer", () => {
       )
     ); //TODO: toEqual;
   });
-  it("selectedAProduct should return change", () => {
+
+  it("selectedAProduct priced 80c should return 20c if user inserted 1€ and the 20c Coin Stack should show one coin less", () => {
     expect(
       machine(
         {
@@ -98,6 +99,14 @@ describe("machine reducer", () => {
               stock: 10,
             },
           ],
+          coinStack: {
+            5: 0,
+            10: 40,
+            20: 2,
+            50: 51,
+            100: 15,
+            200: 2,
+          },
         },
         {
           type: selectedAProduct.type,
@@ -115,6 +124,14 @@ describe("machine reducer", () => {
           stock: 9,
         },
       ],
+      coinStack: {
+        5: 0,
+        10: 40,
+        20: 1,
+        50: 51,
+        100: 15,
+        200: 2,
+      },
     });
   });
 });
