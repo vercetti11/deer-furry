@@ -7,7 +7,7 @@ export function ReturnedProduct() {
   const lastReturnedProduct = useSelector(selectLastReturnedProduct);
 
   return (
-    <Pane marginY="auto" display="flex" justifyContent="center" marginTop={24}>
+    <Pane marginY="auto" display="flex" justifyContent="center">
       <Pane
         border="default"
         height={40}
