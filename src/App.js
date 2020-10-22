@@ -8,6 +8,7 @@ import MainLayout from "./layout/MainLayout";
 import { MachineBottomLayout } from "./layout/MachineBottomLayout";
 import { TopLayout } from "./layout/TopLayout";
 import { RefundButton } from "./features/machine/RefundButton";
+import { Mantainance } from "./features/machine/Mantainance";
 function App() {
   return (
     <MainLayout>
@@ -16,6 +17,7 @@ function App() {
         <RefundButton />
         <CoinsInput />
       </TopLayout>
+      <Mantainance />
       <Products />
       <MachineBottomLayout>
         <ReturnedProduct />

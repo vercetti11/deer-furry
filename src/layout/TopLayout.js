@@ -7,7 +7,7 @@ export function TopLayout({ children }) {
       display="flex"
       alignItems="center"
       justifyContent="space-between"
-      marginBottom={32}
+      marginBottom={20}
     >
       {children}
     </Pane>
