@@ -89,12 +89,12 @@ describe("machine reducer", () => {
     expect(
       machine(
         {
-          userMoney: 1,
+          userMoney: 100,
           returnedChange: [],
           products: [
             {
               name: "Coca-Cola",
-              price: 0.8,
+              price: 80,
               stock: 10,
             },
           ],
@@ -106,12 +106,12 @@ describe("machine reducer", () => {
       )
     ).toEqual({
       userMoney: 0,
-      returnedChange: [0.2],
+      returnedChange: [20],
       lastReturnedProduct: "Coca-Cola",
       products: [
         {
           name: "Coca-Cola",
-          price: 0.8,
+          price: 80,
           stock: 9,
         },
       ],
