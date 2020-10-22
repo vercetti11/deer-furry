@@ -73,6 +73,11 @@ const machineSlice = createSlice({
       state.returnedChange = change;
       //
     },
+    refillStockOfBeverages(state, action) {
+      const slot = action.payload.slot;
+      const quantity = action.payload.quantity;
+      state.products[slot].stock += quantity;
+    },
   },
 });
 
@@ -81,6 +86,7 @@ export const {
   selectedAProduct,
   clearedErrorMessage,
   refundedUserMoney,
+  refillStockOfBeverages,
 } = machineSlice.actions;
 
 export default machineSlice.reducer;

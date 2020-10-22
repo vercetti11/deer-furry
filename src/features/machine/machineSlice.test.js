@@ -1,5 +1,9 @@
 import { initialState } from "../../initial data/initialState";
-import machine, { insertedCoin, selectedAProduct } from "./machineSlice";
+import machine, {
+  insertedCoin,
+  selectedAProduct,
+  refillStockOfBeverages,
+} from "./machineSlice";
 
 describe("machine reducer", () => {
   it("should handle initial state", () => {
@@ -132,6 +136,33 @@ describe("machine reducer", () => {
         100: 15,
         200: 2,
       },
+    });
+  });
+  it("refillStockOfBeverages of Coca-Cola with 10u should reflect in products stock", () => {
+    expect(
+      machine(
+        {
+          products: [
+            {
+              name: "Coca-Cola",
+              price: 80,
+              stock: 9,
+            },
+          ],
+        },
+        {
+          type: refillStockOfBeverages.type,
+          payload: { slot: 0, quantity: 10 },
+        }
+      )
+    ).toEqual({
+      products: [
+        {
+          name: "Coca-Cola",
+          price: 80,
+          stock: 19,
+        },
+      ],
     });
   });
 });
