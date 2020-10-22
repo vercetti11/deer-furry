@@ -11,29 +11,59 @@ describe("machine reducer", () => {
         {
           userMoney: 0,
           coinStack: {
-            0.05: 1,
+            5: 0,
+            10: 40,
+            20: 0,
+            50: 51,
+            100: 15,
+            200: 2,
           },
         },
         {
           type: insertedCoin.type,
-          payload: 0.05,
+          payload: 5,
         }
       )
-    ).toEqual({ coinStack: { 0.05: 2 }, userMoney: 0.05 });
+    ).toEqual({
+      coinStack: {
+        5: 1,
+        10: 40,
+        20: 0,
+        50: 51,
+        100: 15,
+        200: 2,
+      },
+      userMoney: 5,
+    });
     expect(
       machine(
         {
           userMoney: 0,
           coinStack: {
-            1: 0,
+            5: 1,
+            10: 40,
+            20: 0,
+            50: 51,
+            100: 15,
+            200: 2,
           },
         },
         {
           type: insertedCoin.type,
-          payload: 1,
+          payload: 10,
         }
       )
-    ).toEqual({ coinStack: { 1: 1 }, userMoney: 1 });
+    ).toEqual({
+      coinStack: {
+        5: 1,
+        10: 41,
+        20: 0,
+        50: 51,
+        100: 15,
+        200: 2,
+      },
+      userMoney: 10,
+    });
   });
   it("should not return a product if there is no money", () => {
     expect(

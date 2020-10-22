@@ -11,7 +11,7 @@ export const Screen = () => {
   const dispatch = useDispatch();
   const userMoney = useSelector(selectUserMoney);
   const error = useSelector(selectError);
-  const screenMessage = error ? error : userMoney.toFixed(2);
+  const screenMessage = error ? error : (userMoney / 100).toFixed(2);
 
   useEffect(() => {
     setTimeout(() => {

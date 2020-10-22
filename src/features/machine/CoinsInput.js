@@ -5,7 +5,7 @@ import { insertedCoin } from "./machineSlice";
 
 export function CoinsInput() {
   const coinsItCanInsert = useSelector(state =>
-    Object.keys(state.machine.coinStack).map(coin => parseFloat(coin))
+    Object.keys(state.machine.coinStack).map(coin => parseInt(coin))
   );
   const dispatch = useDispatch();
   const handleInsertCoin = coin => {
@@ -23,7 +23,7 @@ export function CoinsInput() {
                 icon={AddIcon}
                 onSelect={() => handleInsertCoin(coin)}
               >
-                {coin.toFixed(2) + " €"}
+                {(coin / 100).toFixed(2) + " €"}
               </Menu.Item>
             ))}
           </Menu.Group>
