@@ -12,9 +12,6 @@ const coinStack = {
 function returnChange(targetChange) {
   let change = [];
   while (targetChange > 0) {
-    if (!coinStack.hasOwnProperty(targetChange)) {
-      return [targetChange];
-    }
     for (let coin in coinStack) {
       if (coin <= targetChange && coinStack[coin] > 1) {
         coinStack[coin]--;
@@ -29,4 +26,4 @@ function returnChange(targetChange) {
   return change;
 }
 
-console.log(returnChange(200));
+console.log(2, returnChange(200));
