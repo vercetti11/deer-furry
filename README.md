@@ -25,7 +25,7 @@ Can be seen here [here](https://github.com/vercetti11/deer-furry/blob/problem-es
 - [x] Insert a coin then show inserted amount
 - [x] Select a product then return beverage or error based on logic
 - [x] Return change when delivering a product
-- [ ] Refund inserted coins on pressing a button
+- [x] Refund inserted coins on pressing a button
 - [ ] Refill stock of beverages
 - [ ] Refill coins for change
 
