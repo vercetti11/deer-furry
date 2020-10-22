@@ -1,8 +1,8 @@
 const coinStack = {
-  5: 1,
-  10: 1,
-  20: 0,
-  50: 1,
+  5: 3,
+  10: 40,
+  20: 50,
+  50: 51,
   100: 15,
   200: 0,
 };
@@ -20,7 +20,6 @@ function returnChange(targetChange) {
         coinStack[coin]--;
         targetChange = targetChange - coin;
         change = [...change, coin / 100];
-        break;
       }
     }
   }
@@ -30,4 +29,4 @@ function returnChange(targetChange) {
   return change;
 }
 
-console.log(0.5, returnChange(50));
+console.log(returnChange(200));
