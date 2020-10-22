@@ -53,6 +53,38 @@ describe("machine reducer", () => {
           payload: 0,
         }
       )
-    );
+    ); //TODO: toEqual;
+  });
+  it("selectedAProduct should return change", () => {
+    expect(
+      machine(
+        {
+          userMoney: 1,
+          returnedChange: [],
+          products: [
+            {
+              name: "Coca-Cola",
+              price: 0.8,
+              stock: 10,
+            },
+          ],
+        },
+        {
+          type: selectedAProduct.type,
+          payload: 0,
+        }
+      )
+    ).toEqual({
+      userMoney: 0,
+      returnedChange: [0.2],
+      lastReturnedProduct: "Coca-Cola",
+      products: [
+        {
+          name: "Coca-Cola",
+          price: 0.8,
+          stock: 9,
+        },
+      ],
+    });
   });
 });
