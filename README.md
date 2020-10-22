@@ -4,9 +4,9 @@
 **Code entry point** `src/indes.js`<br/>
 
 This is a Front-End implementation of a vending machine.<br/>
-You can play with it live [here](https://deer-furry-vending-machine.netlify.app), but be carefull the machine will not give you change at this point in development.
+You can play with it live [here](https://deer-furry-vending-machine.netlify.app), but be careful the machine will not give you change at this point in development.
 
-#### The essencial data structure and business logic:
+#### The essential data structure and business logic:
 Can be seen here [here](https://github.com/vercetti11/deer-furry/blob/problem-essence/index.js) without any implementation details.
 
 #### The implementation is made with:
@@ -17,6 +17,13 @@ Can be seen here [here](https://github.com/vercetti11/deer-furry/blob/problem-es
 `create-react-app` for build setup<br/>
 `react-testing-library` for testing
 
+#### Features
+- [x] Insert a coin then show inserted amount
+- [x] Select a product then return beverage or error based on logic
+- [ ] Return change when delivering a product
+- [ ] Refund inserted coins on pressing a button
+- [ ] Refill stock of beverages
+- [ ] Refill coins for change
 
 ### Available Scripts
 
