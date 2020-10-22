@@ -6,9 +6,10 @@
 This is a Front-End implementation of a vending machine.<br/>
 You can play with it live [here](https://deer-furry-vending-machine.netlify.app), but be carefull the machine will not give you change at this point in development.
 
-The essencial data structure and business logic can be seen here [here](https://github.com/vercetti11/deer-furry/blob/problem-essence/index.js) without any implementation details.
+#### The essencial data structure and business logic:
+Can be seen here [here](https://github.com/vercetti11/deer-furry/blob/problem-essence/index.js) without any implementation details.
 
-#### The implementation was made with:
+#### The implementation is made with:
 `Plain JavaScript Objects` for **Data Structures**<br/>
 `Redux + Redux Toolkit` for **Business Logic**<br/>
 `React + Segment UI Framework`for **Presentation**
