@@ -1,4 +1,4 @@
-<img src="https://firebasestorage.googleapis.com/v0/b/ovo-sound.appspot.com/o/deer-furry.v2.gif?alt=media&token=bb35c70a-9ee7-4b0c-b20f-29bccc53c5dc" alt="fixx" >
+<img src="https://firebasestorage.googleapis.com/v0/b/ovo-sound.appspot.com/o/optim-deer-furryv2.gif?alt=media&token=806f68b2-a710-47cf-9c8c-6908e13dd248" alt="fixx" >
 
 # Documentation
 
