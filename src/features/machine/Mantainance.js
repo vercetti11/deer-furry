@@ -1,12 +1,19 @@
 import { Button, KeyIcon } from "evergreen-ui";
-import React, { useState } from "react";
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
 
-export function Mantainance() {
-  const [lock, setLock] = useState(true);
-  const handleToggleLock = () => setLock(!lock);
+export function OpenMantainance() {
+  const link = useLocation().pathname === "/" ? "/mantainance" : "/";
   return (
-    <Button display="flex" justifyContent="center" marginBottom={32}>
-      <KeyIcon onClick={handleToggleLock} />
-    </Button>
+    <Link to={link}>
+      <Button
+        display="flex"
+        justifyContent="center"
+        marginBottom={32}
+        width="100%"
+      >
+        <KeyIcon />
+      </Button>
+    </Link>
   );
 }

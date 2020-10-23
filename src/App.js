@@ -8,22 +8,42 @@ import MainLayout from "./layout/MainLayout";
 import { MachineBottomLayout } from "./layout/MachineBottomLayout";
 import { TopLayout } from "./layout/TopLayout";
 import { RefundButton } from "./features/machine/RefundButton";
-import { Mantainance } from "./features/machine/Mantainance";
+import { OpenMantainance } from "./features/machine/Mantainance";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+import { RefillStock } from "./features/machine/RefillStock";
 function App() {
   return (
-    <MainLayout>
-      <Screen />
-      <TopLayout>
-        <RefundButton />
-        <CoinsInput />
-      </TopLayout>
-      <Mantainance />
-      <Products />
-      <MachineBottomLayout>
-        <ReturnedProduct />
-        <ReturnedCoinBox />
-      </MachineBottomLayout>
-    </MainLayout>
+    <Router>
+      <MainLayout>
+        <Switch>
+          <Route exact path="/mantainance">
+            <Screen />
+            <TopLayout>
+              <RefundButton />
+              <CoinsInput />
+            </TopLayout>
+            <OpenMantainance />
+            <Products />
+            <MachineBottomLayout>
+              <ReturnedProduct />
+              <ReturnedCoinBox />
+            </MachineBottomLayout>
+          </Route>
+
+          <Route exact path="/">
+            <OpenMantainance />
+            <RefillStock />
+          </Route>
+
+          <Redirect to="/" />
+        </Switch>
+      </MainLayout>
+    </Router>
   );
 }
 

@@ -74,9 +74,9 @@ const machineSlice = createSlice({
       //
     },
     refillStockOfBeverages(state, action) {
-      const slot = action.payload.slot;
-      const quantity = action.payload.quantity;
-      state.products[slot].stock += quantity;
+      const quantity = parseInt(action.payload.quantity);
+      const slot = state.products.indexOf(action.payload.slot);
+      state.products[slot] += quantity;
     },
   },
 });
