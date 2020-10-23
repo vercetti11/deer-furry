@@ -2,12 +2,7 @@
 
 # Documentation
 
-##### Should we make a reusable component out of RefillStock.js to handle refilling coins?
-
-The behaviour of refilling coin stacks is the same as with refilling product stacks but the data structures are different.
-This is going to be left for latter consideration.
-
-Neighter the reducer refillStockOfBeverages should be reused because it represents different logic.
+### TODO: Document the development of the new features
 
 **Code entry point** `src/indes.js`<br/>
 
@@ -33,8 +28,8 @@ Can be seen here [here](https://github.com/vercetti11/deer-furry/blob/problem-es
 - [x] Select a product then return beverage or error based on logic
 - [x] Return change when delivering a product
 - [x] Refund inserted coins on pressing a button
-- [ ] Refill stock of beverages
-- [ ] Refill coins for change
+- [x] Refill stock of beverages
+- [x] Refill coins for change
 
 ### Available Scripts
 
