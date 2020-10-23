@@ -110,3 +110,5 @@ export const selectLastReturnedProduct = state =>
   state.machine.lastReturnedProduct;
 
 export const returnedChange = state => state.machine.returnedChange;
+
+export const selectCoinStack = state => state.machine.coinStack;

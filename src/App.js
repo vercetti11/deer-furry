@@ -16,6 +16,7 @@ import {
   Redirect,
 } from "react-router-dom";
 import { RefillStock } from "./features/machine/RefillStock";
+import { RefillCoinStack } from "./features/machine/RefillCoinStack";
 function App() {
   return (
     <Router>
@@ -38,6 +39,7 @@ function App() {
           <Route exact path="/mantainance">
             <OpenMantainance />
             <RefillStock />
+            <RefillCoinStack />
           </Route>
           <Redirect to="/" />
         </Switch>
