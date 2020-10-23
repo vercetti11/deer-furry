@@ -23,6 +23,10 @@ const machineSlice = createSlice({
         state.lastReturnedProduct = state.products[action.payload].name;
 
         // Return Left Change Logic
+        // Bad Test and unmeet quality condition from user story
+        // Machine has to check if it can return change or not
+        // Based on that take care of different acction
+        // Place this logic in a middleware
         const sortedStacks = Object.entries(state.coinStack)
           .sort((a, b) => b[0] - a[0])
           .map(arr => [parseInt([arr[0]]), arr[1]]);
