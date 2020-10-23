@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAllProducts, refillStockOfBeverages } from "./machineSlice";
-import { Button, Pane, TextInputField, Pill } from "evergreen-ui";
+import { Button, Pane, TextInputField, Text, Badge } from "evergreen-ui";
 
-const Stock = ({ name, stock, sumbitToParent }) => {
+const Stock = ({ name, stock, slotIndex, sumbitToParent }) => {
   const [quantity, setQuantity] = useState("");
   const [validationMessage, setValidationMessage] = useState();
   const handleSumbit = e => {
@@ -18,11 +18,13 @@ const Stock = ({ name, stock, sumbitToParent }) => {
   };
   return (
     <Pane>
-      <Pill>{stock}</Pill>
+      <Badge marginLeft={-4} marginBottom={4}>
+        Slot {slotIndex + 1}
+      </Badge>
       <form onSubmit={handleSumbit}>
         <TextInputField
           value={quantity}
-          label={name}
+          label={`${name} (${stock}) in stock`}
           onChange={({ target }) => setQuantity(target.value)}
           isInvalid={false}
           description="Quantity to refill slot:"
@@ -32,7 +34,9 @@ const Stock = ({ name, stock, sumbitToParent }) => {
           pattern="[0-9]*"
           validationMessage={validationMessage}
         />
-        <Button>Refill</Button>
+        <Button>
+          <Text fontSize={11}>Refill {name}</Text>
+        </Button>
       </form>
     </Pane>
   );
@@ -48,17 +52,18 @@ export function RefillStock() {
     <Pane
       display="grid"
       gridTemplateColumns="1fr 1fr"
-      gridColumnGap={8}
-      gridRowGap={16}
+      gridColumnGap={16}
+      gridRowGap={24}
     >
-      {stocks.map((product, SlotIndex) => {
+      {stocks.map((product, slotIndex) => {
         if (!product.name) return null;
         return (
           <Stock
             key={product.name}
             stock={product.stock}
+            slotIndex={slotIndex}
             name={product.name}
-            sumbitToParent={quantity => handleRefillStock(quantity, SlotIndex)}
+            sumbitToParent={quantity => handleRefillStock(quantity, slotIndex)}
           />
         );
       })}

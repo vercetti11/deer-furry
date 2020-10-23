@@ -8,7 +8,7 @@ import MainLayout from "./layout/MainLayout";
 import { MachineBottomLayout } from "./layout/MachineBottomLayout";
 import { TopLayout } from "./layout/TopLayout";
 import { RefundButton } from "./features/machine/RefundButton";
-import { OpenMantainance } from "./features/machine/Mantainance";
+import { OpenMantainance } from "./features/machine/OpenMantainance";
 import {
   BrowserRouter as Router,
   Switch,
@@ -21,7 +21,7 @@ function App() {
     <Router>
       <MainLayout>
         <Switch>
-          <Route exact path="/mantainance">
+          <Route exact path="/">
             <Screen />
             <TopLayout>
               <RefundButton />
@@ -35,11 +35,10 @@ function App() {
             </MachineBottomLayout>
           </Route>
 
-          <Route exact path="/">
+          <Route exact path="/mantainance">
             <OpenMantainance />
             <RefillStock />
           </Route>
-
           <Redirect to="/" />
         </Switch>
       </MainLayout>

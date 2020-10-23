@@ -1,4 +1,4 @@
-import { Button, KeyIcon } from "evergreen-ui";
+import { Button, KeyIcon, Text } from "evergreen-ui";
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
@@ -12,6 +12,9 @@ export function OpenMantainance() {
         marginBottom={32}
         width="100%"
       >
+        <Text opacity={0} position="absolute">
+          Open Mantainance
+        </Text>
         <KeyIcon />
       </Button>
     </Link>
