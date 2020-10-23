@@ -14,7 +14,7 @@ export const initialState = {
   products: [
     {
       name: "Coca-Cola",
-      price: 0.8,
+      price: 80,
       stock: 10,
     },
     {
