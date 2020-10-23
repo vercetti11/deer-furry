@@ -3,6 +3,7 @@ import machine, {
   insertedCoin,
   selectedAProduct,
   refillStockOfBeverages,
+  refillStockOfCoins,
 } from "./machineSlice";
 
 describe("machine reducer", () => {
@@ -163,6 +164,35 @@ describe("machine reducer", () => {
           stock: 19,
         },
       ],
+    });
+  });
+  it("refillStockOfCoins of 10c with 10u should reflect in coin stack", () => {
+    expect(
+      machine(
+        {
+          coinStack: {
+            5: 0,
+            10: 40,
+            20: 0,
+            50: 51,
+            100: 15,
+            200: 2,
+          },
+        },
+        {
+          type: refillStockOfCoins.type,
+          payload: { slot: 10, quantity: 10 },
+        }
+      )
+    ).toEqual({
+      coinStack: {
+        5: 0,
+        10: 50,
+        20: 0,
+        50: 51,
+        100: 15,
+        200: 2,
+      },
     });
   });
 });
