@@ -4,12 +4,14 @@ import { selectAllProducts, refillStockOfBeverages } from "./machineSlice";
 import { Button, Pane, TextInputField, Pill } from "evergreen-ui";
 
 const Stock = ({ name, stock, sumbitToParent }) => {
-  const [quantity, setQuantity] = useState();
+  const [quantity, setQuantity] = useState("");
   const [validationMessage, setValidationMessage] = useState();
   const handleSumbit = e => {
     e.preventDefault();
     if (quantity) {
       sumbitToParent(parseInt(quantity));
+      setQuantity("");
+      setValidationMessage();
       return;
     }
     setValidationMessage("This field is required");
@@ -19,10 +21,11 @@ const Stock = ({ name, stock, sumbitToParent }) => {
       <Pill>{stock}</Pill>
       <form onSubmit={handleSumbit}>
         <TextInputField
+          value={quantity}
           label={name}
           onChange={({ target }) => setQuantity(target.value)}
           isInvalid={false}
-          description="Quantity to refill slot."
+          description="Quantity to refill slot:"
           placeholder="Insert Number"
           marginBottom={8}
           type="number"
@@ -39,7 +42,6 @@ export function RefillStock() {
   const dispatch = useDispatch();
   const stocks = useSelector(selectAllProducts);
   const handleRefillStock = (quantity, index) => {
-    console.log(quantity, index);
     dispatch(refillStockOfBeverages({ quantity, slot: index }));
   };
   return (
