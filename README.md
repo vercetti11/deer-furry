@@ -2,6 +2,13 @@
 
 # Documentation
 
+##### Should we make a reusable component out of RefillStock.js to handle refilling coins?
+
+The behaviour of refilling coin stacks is the same as with refilling product stacks but the data structures are different.
+This is going to be left for latter consideration.
+
+Neighter the reducer refillStockOfBeverages should be reused because it represents different logic.
+
 **Code entry point** `src/indes.js`<br/>
 
 This is a Front-End implementation of a vending machine.<br/>
