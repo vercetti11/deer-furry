@@ -75,6 +75,14 @@ describe("machine reducer", () => {
       machine(
         {
           userMoney: 0,
+          coinStack: {
+            5: 0,
+            10: 1,
+            20: 0,
+            50: 51,
+            100: 15,
+            200: 2,
+          },
           products: [
             {
               name: "Coca-Cola",
@@ -88,7 +96,25 @@ describe("machine reducer", () => {
           payload: 0,
         }
       )
-    ); //TODO: toEqual is missing;
+    ).toEqual({
+      userMoney: 0,
+      error: "Error",
+      coinStack: {
+        5: 0,
+        10: 1,
+        20: 0,
+        50: 51,
+        100: 15,
+        200: 2,
+      },
+      products: [
+        {
+          name: "Coca-Cola",
+          price: 0.8,
+          stock: 10,
+        },
+      ],
+    });
   });
 
   it("selectedAProduct priced 80c should return 20c if user inserted 1€ and the 20c Coin Stack should show one coin less", () => {
