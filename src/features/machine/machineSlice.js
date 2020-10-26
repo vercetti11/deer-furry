@@ -17,29 +17,32 @@ const machineSlice = createSlice({
       const enoughStock = state.products[button].stock > 0;
       const purchaseCanBeSatisfied = insertedEnoughValueInCoins && enoughStock;
       //
-      if (purchaseCanBeSatisfied) {
-        state.userMoney -= state.products[action.payload].price;
+
+      // Check if change can be returned
+      const sortedStacks = Object.entries(state.coinStack)
+        .sort((a, b) => b[0] - a[0])
+        .map(arr => [parseInt([arr[0]]), arr[1]]);
+      let change = [];
+      const returnTarget = state.userMoney - state.products[button].price;
+      let amountLeftToReturn = returnTarget;
+      let changeSum = 0;
+      const coinStackShallowCopy = { ...state.coinStack };
+      sortedStacks.forEach(stack => {
+        const coin = stack[0];
+        while (amountLeftToReturn >= coin && coinStackShallowCopy[coin] > 0) {
+          coinStackShallowCopy[coin]--;
+          amountLeftToReturn -= coin;
+          changeSum = +coin;
+          change = [...change, coin];
+        }
+      });
+      //
+
+      if (purchaseCanBeSatisfied && returnTarget === changeSum) {
+        state.userMoney -= state.products[action.payload].price + changeSum;
         state.products[action.payload].stock--;
         state.lastReturnedProduct = state.products[action.payload].name;
 
-        // Return Left Change Logic
-        // Bad Test and unmeet quality condition from user story
-        // Machine has to check if it can return change or not
-        // Based on that take care of different acction
-        // Place this logic in a middleware
-        const sortedStacks = Object.entries(state.coinStack)
-          .sort((a, b) => b[0] - a[0])
-          .map(arr => [parseInt([arr[0]]), arr[1]]);
-
-        let change = [];
-        sortedStacks.forEach(stack => {
-          const coin = stack[0];
-          while (state.userMoney >= coin && state.coinStack[coin] > 0) {
-            state.coinStack[coin]--;
-            state.userMoney -= coin;
-            change = [...change, coin];
-          }
-        });
         state.returnedChange = change;
         //
       } else if (!enoughStock) {
