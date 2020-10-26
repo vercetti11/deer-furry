@@ -1,6 +1,10 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import {
+  render,
+  screen,
+  fireEvent,
+  waitForElementToBeRemoved,
+} from "@testing-library/react";
 import { Provider } from "react-redux";
 import store from "./app/store";
 import App from "./App";
@@ -16,8 +20,10 @@ test("should handle mantainante rutine refilling product stocks", async () => {
     </Provider>
   );
 
-  userEvent.click(screen.getByText("Open Mantainance"));
-  userEvent.type(screen.getByLabelText("Coca-Cola (10) in stock"), "10");
-  userEvent.click(screen.getByText("Refill Coca-Cola"));
+  fireEvent.click(screen.getByText("Open Mantainance"));
+  fireEvent.change(screen.getByLabelText("Coca-Cola (10) in stock"), {
+    target: { value: "10" },
+  });
+  fireEvent.click(screen.getByText("Refill Coca-Cola"));
   expect(screen.getByText("Coca-Cola (20) in stock"));
 });
