@@ -4,9 +4,9 @@ export const initialState = {
   returnedChange: [],
   lastReturnedProduct: null,
   coinStack: {
-    5: 0,
-    10: 1,
-    20: 0,
+    5: 11,
+    10: 10,
+    20: 13,
     50: 51,
     100: 15,
     200: 2,
