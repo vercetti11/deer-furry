@@ -1,7 +1,7 @@
 import React from "react";
 import { Pane, Badge } from "evergreen-ui";
 import { useSelector } from "react-redux";
-import { selectLastReturnedProduct } from "./machineSlice";
+import { selectLastReturnedProduct } from "./productsSlice";
 
 export function ReturnedProduct() {
   const lastReturnedProduct = useSelector(selectLastReturnedProduct);

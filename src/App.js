@@ -1,13 +1,13 @@
 import React from "react";
-import { CoinsInput } from "./features/machine/CoinsInput";
+import { CoinsInput } from "./features/coins/CoinsInput";
 import { Products } from "./features/machine/Products";
-import { ReturnedProduct } from "./features/machine/ReturnedProduct";
-import { Screen } from "./features/machine/Screen";
-import { ReturnedCoinBox } from "./features/machine/ReturnedCoinBox";
+import { ReturnedProduct } from "./features/products/ReturnedProduct";
+import { Screen } from "./features/coins/Screen";
+import { CoinsReturned } from "./features/coins/CoinsReturned";
 import MainLayout from "./layout/MainLayout";
 import { MachineBottomLayout } from "./layout/MachineBottomLayout";
 import { TopLayout } from "./layout/TopLayout";
-import { RefundButton } from "./features/machine/RefundButton";
+import { RefundButton } from "./features/coins/RefundButton";
 import { OpenMantainance } from "./features/machine/OpenMantainance";
 import {
   BrowserRouter as Router,
@@ -32,7 +32,7 @@ function App() {
             <Products />
             <MachineBottomLayout>
               <ReturnedProduct />
-              <ReturnedCoinBox />
+              <CoinsReturned />
             </MachineBottomLayout>
           </Route>
 
