@@ -2,12 +2,10 @@
 
 # Documentation
 
-### TODO: Document the development of the new features
-
 **Code entry point** `src/indes.js`<br/>
 
 This is a Front-End implementation of a vending machine.<br/>
-You can play with it live [here](https://deer-furry-vending-machine.netlify.app), but be careful the machine will not give you change at this point in development.
+You can play with the machine in this [live link](https://deer-furry-vending-machine.netlify.app).
 
 #### The essential data structure and business logic:
 
@@ -54,3 +52,15 @@ Builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.<br />
+
+### Take further
+At this point in development, the app has all required user stories and fulfils their acceptance criteria,
+but there are certain details that can take the code quality further:
+- [ ] Split machine slice into a coinStackSlice and a productsSlice
+  - [ ] Make slice reducer listen to actions outside from its own slice
+  - [ ] Reuse refundedUserMoney reducer 
+- [ ] Check if a reusable component can be made out of refill stock UI component
+- [ ] Implement a middleware that logs when a stock falls under a minimum
+- [ ] Improving Render Performance
+- [ ] Implement own Popover component that does not use a deprecated method
+
