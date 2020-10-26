@@ -1,9 +1,9 @@
 const coinStack = {
   5: 0,
-  10: 40,
+  10: 1,
   20: 0,
-  50: 51,
-  100: 15,
+  50: 0,
+  100: 0,
   200: 2,
 };
 
@@ -21,10 +21,12 @@ function giveChangefor(amount) {
       while (amount >= coin) {
         amount -= coin;
         change = [...change, coin];
+        coinStack[coin]--;
       }
     }
   });
   return change;
 }
 
-console.log(giveChangefor(20));
+console.log(giveChangefor(100));
+console.log(coinStack);
