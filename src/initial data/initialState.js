@@ -5,7 +5,7 @@ export const initialState = {
   lastReturnedProduct: null,
   coinStack: {
     5: 0,
-    10: 2,
+    10: 1,
     20: 0,
     50: 51,
     100: 15,

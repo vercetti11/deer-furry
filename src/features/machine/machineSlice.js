@@ -64,16 +64,13 @@ const machineSlice = createSlice({
         .sort((a, b) => b[0] - a[0])
         .map(arr => [parseInt([arr[0]]), arr[1]]);
 
-      const stackHasCoins = stack => stack[1] > 0;
       let change = [];
       sortedStacks.forEach(stack => {
         const coin = stack[0];
-        if (stackHasCoins(stack)) {
-          while (state.userMoney >= coin) {
-            state.coinStack[coin]--;
-            state.userMoney -= coin;
-            change = [...change, coin];
-          }
+        while (state.userMoney >= coin && state.coinStack[coin] > 0) {
+          state.coinStack[coin]--;
+          state.userMoney -= coin;
+          change = [...change, coin];
         }
       });
       state.returnedChange = change;
