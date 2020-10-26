@@ -19,6 +19,7 @@ const machineSlice = createSlice({
       //
 
       // Check if change can be returned
+      // 🐞 If the first stack we check is empty it behaves unexpectedly
       const sortedStacks = Object.entries(state.coinStack)
         .sort((a, b) => b[0] - a[0])
         .map(arr => [parseInt([arr[0]]), arr[1]]);
