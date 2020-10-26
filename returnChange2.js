@@ -1,6 +1,6 @@
 const coinStack = {
   5: 0,
-  10: 1,
+  10: 2,
   20: 0,
   50: 0,
   100: 0,
@@ -17,12 +17,10 @@ function giveChangefor(amount) {
   let change = [];
   sortedStacks.forEach(stack => {
     const coin = stack[0];
-    if (stackHasCoins(stack)) {
-      while (amount >= coin) {
-        amount -= coin;
-        change = [...change, coin];
-        coinStack[coin]--;
-      }
+    while (amount >= coin && coinStack[coin] > 0) {
+      amount -= coin;
+      change = [...change, coin];
+      coinStack[coin]--;
     }
   });
   return change;
