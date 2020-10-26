@@ -43,6 +43,7 @@ const machineSlice = createSlice({
         state.products[action.payload].stock--;
         state.lastReturnedProduct = state.products[action.payload].name;
 
+        change.forEach(coin => state.coinStack[coin]--);
         state.returnedChange = change;
         //
       } else if (!enoughStock) {
