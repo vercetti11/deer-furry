@@ -33,7 +33,7 @@ const machineSlice = createSlice({
         while (amountLeftToReturn >= coin && coinStackShallowCopy[coin] > 0) {
           coinStackShallowCopy[coin]--;
           amountLeftToReturn -= coin;
-          changeSum = +coin;
+          changeSum += coin;
           change = [...change, coin];
         }
       });
