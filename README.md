@@ -60,6 +60,7 @@ but there are certain details that can take the code quality further:
   - [x] Make slice reducer listen to actions outside from its own slice
   - [ ] Reuse refundedUserMoney reducer
 - [x] Implement a middleware that logs when a stock falls under a minimum
+
 I've experimented with spliting the reducers into two; One for coins other for products. The products slice can querry the coins slice via a thunk function.
 
 - [ ] Check if a reusable component can be made out of refill stock UI component
